@@ -1,0 +1,17 @@
+# Byte compiled files
+__pycache__
+
+# Environments
+.venv
+
+# User setting files
+.vscode
+
+# Logs
+/log
+
+# Path loss and log files
+*.csv
+
+# Exceptions
+!/config/adapter_deembedded.csv

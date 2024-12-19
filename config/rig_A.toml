@@ -1,0 +1,19 @@
+# Example rig configuration file
+# Replace IPs and IDs with actual values during setup
+# Create `rig_B.toml`, `rig_C.toml` files as needed and specify the identifier in `config.toml`
+
+# Instrument settings on test rig A
+
+[SG]
+SMW200A.ip = "192.168.1.100" # VSG
+
+[SA]
+FSW43.ip = "192.168.1.101" # VSA
+
+[PowerSensor]
+NRP_Z86.device_id = "0x00A1" # Power sensor ID in hex format
+NRP_Z86.serial_nu = "123456" # Power sensor serial number
+
+[PowerSupply]
+E36313A_1.ip = "192.168.1.102" # PS1 IP
+E36313A_2.ip = "192.168.1.103" # PS2 IP

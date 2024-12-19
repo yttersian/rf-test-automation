@@ -1,0 +1,68 @@
+product = "Product-A" # Product to test
+serial = "12345678"   # Serial number
+test_lasig = true     # Test large signals
+test_aclr = true      # Test ACLR
+with_dpd = true       # Test ACLR with DPD
+
+test_rig = "A"                          # Define test station
+path_loss_file = "pathloss_example.csv" # Name of path loss file, in ./config directory
+
+pout_target_dbm = 28 # Pout target. Provide a list [a, b, ..., z] to sweep a target range.
+
+
+[PowerSupply]
+ps1_ch1_voltage = 5
+ps1_ch1_current = 2
+
+ps1_ch2_voltage = 5
+ps1_ch2_current = 2
+
+ps1_ch3_voltage = 5
+ps1_ch3_current = 2
+
+ps2_ch1_voltage = 5
+ps2_ch1_current = 0.1
+
+ps2_ch2_voltage = 2
+ps2_ch2_current = 0.001
+
+ps2_ch3_voltage = 0
+ps2_ch3_current = 0
+
+
+[ACLR]
+resolution_bandwidth = 100e3 # Defines the bandwidth of the resolution filter applied to spectrum measurements
+sweep_time = 100e-3          # Defines the capture time
+
+
+[DPD]
+iteration = 10          # Defines the number of iterations in a direct DPD sequence.
+tradeoff = 50           # Defines the power / linearity tradeoff for direct DPD calculation in percent [0 to 100]
+iq_flag = true          # Turns I/Q averaging ON or OFF
+iq_count = 5            # Defines the number of single data captures the application uses to average the data
+estim_flag = true       # Turns estimation over the complete reference signal ON or OFF
+estim_range = [0, 1e-3] # Defines [start, stop] in [s] of the estimation range
+
+
+[Product-A]
+# ACLR
+sa_ref_level = 32
+signal_bw = 20e6
+carrier_number = 4
+sg_att_level = 0
+sa_inp_att_level = 10
+dpd_expansion = 3
+
+# Sweep
+sweep_start_dbm = -20
+sweep_step_dbm = 0.5
+sweep_stop_dbm = 10
+
+# Test frequencies
+[Product-A.Freqs]
+modulated = [3.35e9, 3.45e9, 3.55e9]
+lasig = [3.3e9, 3.45e9, 3.6e9]
+
+
+[Product-B]
+# etc
